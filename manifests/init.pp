@@ -7,11 +7,6 @@ class uwsgi (
   $erlang          = undef
 ) inherits uwsgi::params {
 
-  class { 'uwsgi::install': }
-  service {'uwsgi':
-    ensure => 'running',
-    enable => true,
-    require => Class['uwsgi::install']
-  }
-
+  include uwsgi::install
+  include uwsgi::service
 }
