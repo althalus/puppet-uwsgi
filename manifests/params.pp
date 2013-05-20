@@ -7,6 +7,7 @@ class uwsgi::params {
             $plugin_rack_ruby_18_package  = 'uwsgi-plugin-rack-ruby1.8'
             $plugin_rack_ruby_191_package = 'uwsgi-plugin-rack-ruby1.9.1'
             $plugin_erlang_package        = 'uwsgi-plugin-erlang'
+            $plugin_prefix                = 'uwsgi-plugin-'
         }
         default: {
             notify { "${module_name}_unsupported":

@@ -3,24 +3,23 @@ class uwsgi::install {
     ensure => $uwsgi::package_version,
   }
   if $uwsgi::python != undef {
-    package { $uwsgi::params::plugin_python_package:
+    uwsgi::plugin { 'python':
       ensure => $uwsgi::python
     }
   }
   if $uwsgi::ruby18 != undef {
-    package { $uwsgi::params::plugin_rack_ruby18_package:
+    uwsgi::plugin { 'rack-ruby1.8':
       ensure => $uwsgi::ruby18
     }
   }
   if $uwsgi::ruby191 != undef {
-    package { $uwsgi::params::plugin_rack_ruby191_package:
+    uwsgi::plugin { 'rack-ruby1.9.1':
       ensure => $uwsgi::ruby191
     }
   }
   if $uwsgi::erlang != undef {
-    package { $uwsgi::params::plugin_erlang_package:
+    uwsgi::plugin { 'erlang':
       ensure => $uwsgi::erlang
     }
   }
-  
 }

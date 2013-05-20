@@ -8,12 +8,26 @@ Basic Usage
 -----------
 
     class { 'uwsgi': }
-    
-To enable wsgi support for Python:
 
-    class { 'uwsgi':
-        python => 'present',
+Installing uwsgi plugins
+-------------------------------
+
+The easiest way of installing additional uwsgi plugins is using packages
+from your distribution .
+
+```
+    uwsgi::plugin { 'python':
+        ensure => present,
     }
+```
+
+Multiple plugins are possible, too.
+
+```
+    uwsgi::plugin { ['rack-ruby1.9.1', 'erlang', ]:
+        ensure => present,
+    }
+```
 
 Creating and enabling an application
 ---------------------------------------
